@@ -1,4 +1,4 @@
-# This code is to provide and dispay to a user his Birthdate in Binary numbers and how old he is
+# This code is to provide and dispay to a user his Birthdate in Binary numbers
 
 #Gui
 from tkinter import *
