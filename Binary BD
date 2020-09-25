@@ -1,0 +1,50 @@
+# This code is to provide and dispay to a user his Birthdate in Binary numbers and how old he is
+
+#Gui
+from tkinter import *
+root = Tk() 
+w = Label(root, text='Hello guys, Enjoy!') 
+w.pack() 
+root.mainloop()
+
+
+# Import numpy and datetime libraries
+import numpy as np
+from datetime import date
+
+# Input of a use's day of birth and convert it to binary number
+# The uint8 data type contains all whole numbers from 0 to 255
+day_of_birth = np.array(input("Please input the day of your birth: "), dtype = np.uint8)
+
+d_binary = np.unpackbits(day_of_birth, axis = None)
+print(day_of_birth, "it's your binary day:", d_binary)
+
+# Input of a user's month of birth and convert it to binary number
+# The uint8 data type contains all whole numbers from 0 to 255
+month_of_birth = np.array(input("Please input the month of your birth: "), dtype = np.uint8)
+m_binary = np.unpackbits(month_of_birth, axis = None)
+print(month_of_birth, "it's your binary month:", m_binary)
+
+#Input of a user's year of birth and convert it to binary number
+#The UInt16 value type represents unsigned integers with values ranging from 0 to 65535
+year_of_birth = np.array(input("Please input the year of your birth: "), dtype = np.uint16)
+y_binary = np.array(np.binary_repr(year_of_birth, width=16))
+print(year_of_birth, "it's your binary year:", y_binary)
+
+
+# Calculate user age
+today = date.today()
+day=int(day_of_birth)
+month=int(month_of_birth)
+year=int(year_of_birth)
+
+def calculateAge(birthDate): 
+    today = date.today() 
+    age = today.year - birthDate.year- ((today.month, today.day) < (birthDate.month, birthDate.day)) 
+    return age 
+      
+print('\n'"You are", calculateAge(date(year, month, day)), "years old") 
+
+
+# I hope you had a great time))))
+
